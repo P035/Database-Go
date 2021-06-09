@@ -44,7 +44,8 @@ func Insertar(tx *sql.Tx, query string) {
 
 		fmt.Println("Query ejecutada perfectamente!")
 	}
-	fmt.Println(result)
+	a, _ := result.RowsAffected()
+	fmt.Println(a)
 }
 
 func Tabla(tx *sql.Tx, query string) Data{
