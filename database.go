@@ -17,7 +17,7 @@ type Data struct {
 
 func Start() *sql.Tx{
 
-	db, err := sql.Open("mysql", "root:Naranjo7854@/relacional")
+	db, err := sql.Open("mysql", "root:Naranjo7854@/crud")
 	fmt.Println("Conectando con la base de datos.")
 	if err != nil {
 
@@ -31,6 +31,18 @@ func Start() *sql.Tx{
 		fmt.Println("Error iniciando transaxión", err)
 	}
 	return tx
+}
+
+func Insertar(tx *sql.Tx, query string) {
+
+	fmt.Println("Ejecutando query!")
+	_, err := tx.Exec(query)
+	if err != nil {
+
+		fmt.Println("Error ejecutando query", err)
+	}else {
+
+		fmt.Println("Query ejecutada perfectamente!")
 }
 
 func Tabla(tx *sql.Tx, query string) Data{
