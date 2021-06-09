@@ -36,7 +36,7 @@ func Start() *sql.Tx{
 func Insertar(tx *sql.Tx, query string) {
 
 	fmt.Println("Ejecutando query!")
-	_, err := tx.Exec(query)
+	result, err := tx.Exec(query)
 	if err != nil {
 
 		fmt.Println("Error ejecutando query", err)
@@ -44,6 +44,7 @@ func Insertar(tx *sql.Tx, query string) {
 
 		fmt.Println("Query ejecutada perfectamente!")
 	}
+	fmt.Println(result)
 }
 
 func Tabla(tx *sql.Tx, query string) Data{
