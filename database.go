@@ -17,7 +17,7 @@ type Data struct {
 
 func Start() *sql.Tx{
 
-	db, err := sql.Open("mysql", "root:Naranjo7854@/crud")
+	db, err := sql.Open("mysql", "root:Naranjo7854@/relacional")
 	fmt.Println("Conectando con la base de datos.")
 	if err != nil {
 
