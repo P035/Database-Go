@@ -43,6 +43,7 @@ func Insertar(tx *sql.Tx, query string) {
 	}else {
 
 		fmt.Println("Query ejecutada perfectamente!")
+	}
 }
 
 func Tabla(tx *sql.Tx, query string) Data{
