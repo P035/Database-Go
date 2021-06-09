@@ -41,6 +41,7 @@ func Tabla(tx *sql.Tx, query string) Data{
 		fmt.Println("Error ejecutando Query", err)
 	}
 	var Lectura Data
+	data.Next()
 	data.Scan(&Lectura.id, &Lectura.Nombre, &Lectura.Contrasena)
 	return Lectura
 }
