@@ -33,19 +33,13 @@ func Start() *sql.Tx{
 	return tx
 }
 
-func Insertar(tx *sql.Tx, query string) {
+func Insertar(tx *sql.Tx) {
 
-	fmt.Println("Ejecutando query!")
-	result, err := tx.Exec(query)
-	if err != nil {
-
-		fmt.Println("Error ejecutando query", err)
-	}else {
-
-		fmt.Println("Query ejecutada perfectamente!")
-	}
-	a, _ := result.LastInsertId()
-	fmt.Println(a)
+	stmt, err := tx.Prepare("INSERT INTO usuarios(ID, Nombre, Contraseña) VALUES(?, ?, ?)")
+	fmt.Println(err)
+	result, err := stmt.Exec("90", "peo", "Poto")
+	fmt.Println(err)
+	fmt.Println(result.LastInsertId())
 }
 
 func Tabla(tx *sql.Tx, query string) Data{
