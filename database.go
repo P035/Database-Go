@@ -44,7 +44,7 @@ func Insertar(tx *sql.Tx, query string) {
 
 		fmt.Println("Query ejecutada perfectamente!")
 	}
-	a, _ := result.RowsAffected()
+	a, _ := result.LastInsertId()
 	fmt.Println(a)
 }
 
