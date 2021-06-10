@@ -36,7 +36,7 @@ func Start() *sql.Tx{
 
 func Insertar(query string) {
 
-	db, err := sql.Open("mysql", "root:Naranjo7854@relacional")
+	db, err := sql.Open("mysql", "root:Naranjo7854@/relacional")
 	if err != nil {
 
 		fmt.Println("Error conectando a la base de datos", err)
