@@ -47,7 +47,6 @@ func Insertar(query string) {
 
 		fmt.Println("Error ejecutando query", err)
 	}
-	fmt.Println("Last insert id", result.LastInsertId())
 }
 
 func Tabla(tx *sql.Tx, query string) Data{
