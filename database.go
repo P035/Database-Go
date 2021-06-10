@@ -29,17 +29,25 @@ func Start() *sql.Tx{
 	if err != nil {
 
 		fmt.Println("Error iniciando transaxión", err)
+		os.Exit(1)
 	}
 	return tx
 }
 
-func Insertar(tx *sql.Tx) {
+func Insertar(query string) {
 
-	stmt, err := tx.Prepare("INSERT INTO usuarios(ID, Nombre, Contraseña) VALUES(?, ?, ?)")
-	fmt.Println(err)
-	result, err := stmt.Exec("90", "peo", "Poto")
-	fmt.Println(err)
-	fmt.Println(result.LastInsertId())
+	db, err := sql.Open("mysql", "root:Naranjo7854@relacional")
+	if err != nil {
+
+		fmt.Println("Error conectando a la base de datos", err)
+		os.Exit(1)
+	}
+	result, err := db.Exec(query)
+	if err != nil {
+
+		fmt.Println("Error ejecutando query", err)
+	}
+	fmt.Println("Last insert id", result.LastInsertId())
 }
 
 func Tabla(tx *sql.Tx, query string) Data{
