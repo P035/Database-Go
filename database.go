@@ -42,7 +42,7 @@ func Insertar(query string) {
 		fmt.Println("Error conectando a la base de datos", err)
 		os.Exit(1)
 	}
-	_, err := db.Exec(query)
+	_, err = db.Exec(query)
 	if err != nil {
 
 		fmt.Println("Error ejecutando query", err)
